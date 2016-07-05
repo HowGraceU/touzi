@@ -1,0 +1,85 @@
+/*initialize*/
+body,div,ul,li{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background: #ccc;
+}
+li{
+  list-style: none;
+}
+@mixin transform ($dome) {
+  transform: $dome;
+  -ms-transform: $dome;   /* IE 9 */
+  -webkit-transform: $dome; /* Safari and Chrome */
+  -o-transform: $dome;    /* Opera */
+  -moz-transform: $dome;    /* Firefox */
+}
+#touzi{
+  position: relative;
+  margin: 100px auto 0;
+  width: 200px;
+  height: 200px;
+  -webkit-transform-style:preserve-3d;
+  @include transform (rotateX(0deg) rotateY(45deg) rotateZ(0deg));
+  li{
+    position: absolute;
+    background: url(touzi.jpg) no-repeat;
+    width: 200px;
+    height: 200px;
+    left: 0;
+    top: 0;
+  }
+  li:nth-child(1){//1
+    background-position:-216px -426px;
+    @include transform (translateZ(-100px))
+  }
+  li:nth-child(2){//2
+    background-position:-216px -216px;
+    @include transform (translateX(-100px) rotateY(90deg))
+  }
+  li:nth-child(3){//3
+    background-position:-4px -426px;
+    @include transform (translateY(100px) rotateX(90deg))
+  }
+  li:nth-child(4){//4
+    background-position:-426px -216px;
+    @include transform (translateY(-100px) rotateX(90deg))
+  }
+  li:nth-child(5){//5
+    background-position:-634px -216px;
+    @include transform (translateX(100px) rotateY(90deg))
+  }
+  li:nth-child(6){//6
+    background-position:-216px -7px;
+    @include transform (translateZ(100px))
+  }
+}
+#key{
+  position: relative;
+  margin: 0 auto;
+  width: 300px;
+  height: 150px;
+  input{
+    position: absolute;
+    width: 50px;
+    height: 30px;
+  }
+  input:nth-child(1){
+      top: 0;
+      left: 125px;
+    }
+  input:nth-child(2){
+    bottom: 0;
+    left: 125px;
+  }
+  input:nth-child(3){
+    top: 60px;
+    left: 0;
+  }
+  input:nth-child(4){
+    top: 60px;
+    right: 0;
+  }
+}
